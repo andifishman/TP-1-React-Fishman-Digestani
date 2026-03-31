@@ -7,9 +7,9 @@ function Cita({ cita }) {
       <p>Hora: <span>{cita.hora}</span></p>
       <p>Sintomas: <span>{cita.sintomas}</span></p>
 
-      <button className="button eliminar u-full-width">
-        Eliminar ×
-      </button>
+    <button className="button eliminar u-full-width">
+  Eliminar ×
+</button>
     </div>
   );
 }

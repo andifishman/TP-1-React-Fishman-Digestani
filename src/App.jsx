@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Formulario from "./components/Formulario";
+import ListaCitas from "./components/ListaCitas";
+import Titulo from "./components/Titulo";
 
 function App() {
 
@@ -28,52 +31,17 @@ function App() {
 
   return (
     <>
-      <h1>ADMINISTRADOR DE PACIENTES</h1>
+      <Titulo texto="ADMINISTRADOR DE PACIENTES" />
 
       <div className="container">
         <div className="row">
 
           <div className="one-half column">
-            <h2>Crear mi Cita</h2>
-
-            <form>
-              <label>Nombre Mascota</label>
-              <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota" />
-
-              <label>Nombre Dueño</label>
-              <input type="text" name="propietario" className="u-full-width" placeholder="Nombre dueño de la mascota" />
-
-              <label>Fecha</label>
-              <input type="date" name="fecha" className="u-full-width" />
-
-              <label>hora</label>
-              <input type="time" name="hora" className="u-full-width" />
-
-              <label>Sintomas</label>
-              <textarea name="sintomas" className="u-full-width"></textarea>
-
-              <button type="submit" className="u-full-width button-primary">
-                Agregar Cita
-              </button>
-            </form>
+            <Formulario />
           </div>
 
           <div className="one-half column">
-            <h2>Administra tus citas</h2>
-
-            {citas.map((cita, index) => (
-              <div className="cita" key={index}>
-                <p>Mascota: <span>{cita.mascota}</span></p>
-                <p>Dueño: <span>{cita.propietario}</span></p>
-                <p>Fecha: <span>{cita.fecha}</span></p>
-                <p>Hora: <span>{cita.hora}</span></p>
-                <p>Sintomas: <span>{cita.sintomas}</span></p>
-                
-                <button className="button elimnar u-full-width">
-                  Eliminar ×
-                </button>
-              </div>
-            ))}
+            <ListaCitas citas={citas} />
           </div>
 
         </div>
