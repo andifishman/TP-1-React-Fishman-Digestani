@@ -1,60 +1,29 @@
-import { useState } from "react";
-import "./Formulario.css";
-
-function Formulario({ agregarServicio }) {
-
-  const [form, setForm] = useState({
-    cliente: "",
-    equipo: "",
-    fecha: "",
-    hora: "",
-    problema: ""
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    agregarServicio(form);
-
-    setForm({
-      cliente: "",
-      equipo: "",
-      fecha: "",
-      hora: "",
-      problema: ""
-    });
-  };
-
+function Formulario() {
   return (
-    <div className="formulario">
-      <h2>Crear Orden</h2>
+    <>
+      <h2>Crear mi Cita</h2>
 
-      <form onSubmit={handleSubmit}>
-        <label>Nombre del Cliente</label>
-        <input name="cliente" value={form.cliente} onChange={handleChange} />
+      <form>
+        <label>Nombre Mascota</label>
+        <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota" />
 
-        <label>Equipo</label>
-        <input name="equipo" value={form.equipo} onChange={handleChange} />
+        <label>Nombre Dueño</label>
+        <input type="text" name="propietario" className="u-full-width" placeholder="Nombre dueño de la mascota" />
 
         <label>Fecha</label>
-        <input type="date" name="fecha" value={form.fecha} onChange={handleChange} />
+        <input type="date" name="fecha" className="u-full-width" />
 
-        <label>Hora</label>
-        <input type="time" name="hora" value={form.hora} onChange={handleChange} />
+        <label>hora</label>
+        <input type="time" name="hora" className="u-full-width" />
 
-        <label>Problema</label>
-        <textarea name="problema" value={form.problema} onChange={handleChange}></textarea>
+        <label>Sintomas</label>
+        <textarea name="sintomas" className="u-full-width"></textarea>
 
-        <button type="submit">Agregar Orden</button>
+        <button type="submit" className="u-full-width button-primary">
+          Agregar Cita
+        </button>
       </form>
-    </div>
+    </>
   );
 }
 
