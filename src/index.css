@@ -7,14 +7,7 @@ body {
   padding-bottom: 5rem;
 }
 
-h1,
-h2 {
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+
 
 label {
   color: white;
@@ -36,7 +29,23 @@ label {
 }
 
 .eliminar {
-  background-color: #c10059;
+
   color: white;
+  margin-top: 2rem;
+}
+
+h1,
+h2 {
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 1px;
+}
+.button.eliminar,
+.button.eliminar:hover {
+
+  color: black;
   margin-top: 2rem;
 }
