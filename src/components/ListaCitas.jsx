@@ -4,7 +4,7 @@ import "./ListaCitas.css";
 function ListaCitas({ citas, eliminarCita }) {
   return (
     <div className="lista-citas-contenedor">
-      <h2>Administrá tus citas</h2>
+      <h2>Administra tus Citas</h2>
 
       {citas.length === 0 ? (
         <p className="sin-citas">No hay citas cargadas</p>

@@ -53,7 +53,7 @@ function Formulario({ agregarCita }) {
 
   return (
     <div className="formulario-contenedor">
-      <h2>Crear Mi Cita</h2>
+      <h2>Crear MI Cita</h2>
 
       {error && (
         <p className="alerta-error">
@@ -63,7 +63,7 @@ function Formulario({ agregarCita }) {
 
       <form className="formulario" onSubmit={handleSubmit}>
         <div className="campo">
-          <label>Nombre mascota</label>
+          <label>Nombre Mascota</label>
           <input
             type="text"
             name="mascota"
@@ -73,7 +73,7 @@ function Formulario({ agregarCita }) {
         </div>
 
         <div className="campo">
-          <label>Nombre dueño</label>
+          <label>Nombre Dueño</label>
           <input
             type="text"
             name="propietario"

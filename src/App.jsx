@@ -13,7 +13,7 @@ function App() {
 
   const eliminarCita = (id) => {
     const confirmar = window.confirm(
-      "¿Seguro que querés eliminar esta cita?"
+      "¿seguro que querés eliminar esta cita?"
     );
 
     if (confirmar) {
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Titulo texto="Administrador de pacientes" />
+      <Titulo texto="Administrador de Citas" />
 
       <div className="contenedor-principal">
         <div className="columna">
