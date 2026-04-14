@@ -2,48 +2,36 @@ import { useState } from "react";
 import Formulario from "./components/Formulario";
 import ListaCitas from "./components/ListaCitas";
 import Titulo from "./components/Titulo";
+import "./App.css";
 
 function App() {
+  const [citas, setCitas] = useState([]);
 
-  const [citas] = useState([
-    {
-      mascota: "Nina",
-      propietario: "Martin",
-      fecha: "2021-08-05",
-      hora: "08:20",
-      sintomas: "Le duele la pierna"
-    },
-    {
-      mascota: "Sifon",
-      propietario: "Flecha",
-      fecha: "2023-08-05",
-      hora: "09:24",
-      sintomas: "Duerme mucho"
-    },
-    {
-      mascota: "Floki",
-      propietario: "Ari",
-      fecha: "2023-08-05",
-      hora: "16:15",
-      sintomas: "No está comiendo"
+  const agregarCita = (citaNueva) => {
+    setCitas([...citas, citaNueva]);
+  };
+
+  const eliminarCita = (id) => {
+    const confirmar = window.confirm(
+      "¿Seguro que querés eliminar esta cita?"
+    );
+
+    if (confirmar) {
+      setCitas(citas.filter((cita) => cita.id !== id));
     }
-  ]);
+  };
 
   return (
     <>
-      <Titulo texto="ADMINISTRADOR DE PACIENTES" />
+      <Titulo texto="Administrador de pacientes" />
 
-      <div className="container">
-        <div className="row">
+      <div className="contenedor-principal">
+        <div className="columna">
+          <Formulario agregarCita={agregarCita} />
+        </div>
 
-          <div className="one-half column">
-            <Formulario />
-          </div>
-
-          <div className="one-half column">
-            <ListaCitas citas={citas} />
-          </div>
-
+        <div className="columna">
+          <ListaCitas citas={citas} eliminarCita={eliminarCita} />
         </div>
       </div>
     </>

@@ -1,29 +1,122 @@
-function Formulario() {
+import { useState } from "react";
+import "./Formulario.css";
+
+function Formulario({ agregarCita }) {
+  const [cita, setCita] = useState({
+    mascota: "",
+    propietario: "",
+    fecha: "",
+    hora: "",
+    sintomas: "",
+  });
+
+  const [error, setError] = useState(false);
+
+  const handleChange = (e) => {
+    setCita({
+      ...cita,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { mascota, propietario, fecha, hora, sintomas } = cita;
+
+    if (
+      mascota.trim() === "" ||
+      propietario.trim() === "" ||
+      fecha.trim() === "" ||
+      hora.trim() === "" ||
+      sintomas.trim() === ""
+    ) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
+    agregarCita({
+      ...cita,
+      id: Date.now().toString(),
+    });
+
+    setCita({
+      mascota: "",
+      propietario: "",
+      fecha: "",
+      hora: "",
+      sintomas: "",
+    });
+  };
+
   return (
-    <>
-      <h2>Crear mi Cita</h2>
+    <div className="formulario-contenedor">
+      <h2>Crear Mi Cita</h2>
 
-      <form>
-        <label>Nombre Mascota</label>
-        <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota" />
+      {error && (
+        <p className="alerta-error">
+          Todos los campos son obligatorios
+        </p>
+      )}
 
-        <label>Nombre Dueño</label>
-        <input type="text" name="propietario" className="u-full-width" placeholder="Nombre dueño de la mascota" />
+      <form className="formulario" onSubmit={handleSubmit}>
+        <div className="campo">
+          <label>Nombre mascota</label>
+          <input
+            type="text"
+            name="mascota"
+            value={cita.mascota}
+            onChange={handleChange}
+          />
+        </div>
 
-        <label>Fecha</label>
-        <input type="date" name="fecha" className="u-full-width" />
+        <div className="campo">
+          <label>Nombre dueño</label>
+          <input
+            type="text"
+            name="propietario"
+            value={cita.propietario}
+            onChange={handleChange}
+          />
+        </div>
 
-        <label>hora</label>
-        <input type="time" name="hora" className="u-full-width" />
+        <div className="campo">
+          <label>Fecha</label>
+          <input
+            type="date"
+            name="fecha"
+            value={cita.fecha}
+            onChange={handleChange}
+          />
+        </div>
 
-        <label>Sintomas</label>
-        <textarea name="sintomas" className="u-full-width"></textarea>
+        <div className="campo">
+          <label>hora</label>
+          <input
+            type="time"
+            name="hora"
+            value={cita.hora}
+            onChange={handleChange}
+          />
+        </div>
 
-        <button type="submit" className="u-full-width button-primary">
+        <div className="campo">
+          <label>Síntomas</label>
+          <textarea
+            name="sintomas"
+            value={cita.sintomas}
+            onChange={handleChange}
+            rows="4"
+          />
+        </div>
+
+        <button type="submit" className="button-primary u-full-width">
           Agregar Cita
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

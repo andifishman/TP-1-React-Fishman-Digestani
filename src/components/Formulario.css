@@ -1,0 +1,49 @@
+.formulario-contenedor h2 {
+  color: white;
+  text-align: center;
+  font-family: "Staatliches", cursive;
+  letter-spacing: 1px;
+}
+
+.formulario {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000;
+  font-weight: bold;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campo input[type="date"],
+.campo input[type="time"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+}
+
+.alerta-error {
+  background-color: white;
+  color: red;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Staatliches", cursive;
+  margin-bottom: 1rem;
+}

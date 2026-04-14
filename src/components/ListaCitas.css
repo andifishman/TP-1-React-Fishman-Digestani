@@ -1,0 +1,12 @@
+.lista-citas-contenedor h2 {
+  color: white;
+  text-align: center;
+  font-family: "Staatliches", cursive;
+  letter-spacing: 1px;
+}
+
+.sin-citas {
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+}
