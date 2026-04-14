@@ -11,7 +11,8 @@ function Formulario({ agregarCita }) {
   });
 
   const [error, setError] = useState(false);
-
+//guarda los nuevos valores como variables y submitea
+//tres puntitos es lo mismo que la lista
   const handleChange = (e) => {
     setCita({
       ...cita,
@@ -23,17 +24,6 @@ function Formulario({ agregarCita }) {
     e.preventDefault();
 
     const { mascota, propietario, fecha, hora, sintomas } = cita;
-
-    if (
-      mascota.trim() === "" ||
-      propietario.trim() === "" ||
-      fecha.trim() === "" ||
-      hora.trim() === "" ||
-      sintomas.trim() === ""
-    ) {
-      setError(true);
-      return;
-    }
 
     setError(false);
 
